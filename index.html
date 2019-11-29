@@ -2,9 +2,40 @@
 <html>
 <head>
 	<title>TEST</title>
+	<style type="text/css">
+		.right{
+			-ms-transform: rotate(0deg); /* IE 9 */
+  			-webkit-transform: rotate(0deg); /* Safari 3-8 */
+  			transform: rotate(0deg);
+		}
+		.down{
+			-ms-transform: rotate(90deg); /* IE 9 */
+  			-webkit-transform: rotate(90deg); /* Safari 3-8 */
+  			transform: rotate(90deg);
+		}
+		.left{
+			-ms-transform: rotate(180deg); /* IE 9 */
+  			-webkit-transform: rotate(180deg); /* Safari 3-8 */
+  			transform: rotate(180deg);
+		}
+		.up{
+			-ms-transform: rotate(270deg); /* IE 9 */
+  			-webkit-transform: rotate(270deg); /* Safari 3-8 */
+  			transform: rotate(270deg);
+		}
+		.arrow{
+			display: block;
+			margin: 0 auto;
+			width: 15%;
+			height: 15%;	
+		}
+
+	</style>
 </head>
-<body>
-	<img src="arrow-right.png" alt="Right">
-	<p>i am testing stuff</p>
+<body onload="randomArrow()">
+	<button onClick="randomArrow()">Reset</button>
+	<div id="arrows" class="up"><img class="arrow" src="resources/arrow-right.png" alt="Right"></div>
+
+	<script src="main.js?version = 0.0.0.0000.1" charset="utf-8" type="text/javascript"></script>
 </body>
 </html>
