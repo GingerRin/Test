@@ -109,7 +109,7 @@ function play(){
 }
 
 function init(){
-	console.log('audio loaded')
+	console.log('audio loaded i think')
 }
 
 document.getElementById("screen").addEventListener("click", play)
