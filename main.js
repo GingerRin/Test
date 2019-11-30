@@ -126,4 +126,5 @@ function init2(){
 	console.log('images loaded i think')
 }
 
-document.getElementById("screen").addEventListener("click", play)
+document.getElementById("screen").addEventListener("mousedown", play)
+document.getElementById("screen").addEventListener("touchstart", play)
