@@ -1,5 +1,6 @@
 var seq = 0;
 var audio = new Audio()
+var i = 0;
 var playlist = new Array(
 	'resources/audio/1 Are.mp3',
 	'resources/audio/2 You.mp3',
@@ -26,6 +27,16 @@ var playlist = new Array(
 	'resources/audio/23 ta.mp3',
 	'resources/audio/24 i.mp3',
 	)
+	
+for (i; i<playlist.length; i++) {
+	audio.src = playlist[i]
+	audio.load()
+}
+
+audio.oncanplaythrough = function(){
+	console.log('audio loaded')
+	document.getElementById("loadMessage").innerHTML = "Audio loaded"
+};
 
 document.getElementById("screen").addEventListener("click", playSeq)
 
