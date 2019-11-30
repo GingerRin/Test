@@ -1,5 +1,4 @@
-var seq = 0;
-var audio = new Audio()
+var seq = 0
 var idols = new Array()
 var playlist = new Array(
 	'resources/audio/1 Are.mp3',
@@ -52,18 +51,35 @@ function loadStuffs(){
 		console.log('image '+i+' loaded')
 	}
 
-	for (var i=0; i<playlist.length; i++) {
+/*	for (var i=0; i<playlist.length; i++) {
 		audio.src = playlist[i]
 		audio.load()
 		console.log('audio '+i+' loaded')
-	}
+	}*/
 }
 
 
-document.getElementById("screen").addEventListener("click", playSeq)
+function preloadAudio(track){
+	var audio = new Audio()
+	audio.addEventListener('canplaythrough', loadedAudio, false)
+	audio.src = track
+}
 
-function playSeq(){
-	
+var loaded = 0
+function loadedAudio(){
+	loaded++
+	if(loaded==playlist.length){
+		init();
+	}
+}
+
+for (var i in playlist){
+	preloadAudio(playlist[i])
+}
+
+var player = document.getElementById('player')
+
+function play(){
 	switch(seq){
 	case 4:
 		document.getElementById("leftImg").src = idols[2].src
@@ -87,7 +103,13 @@ function playSeq(){
 	}
 
 	if(seq<=23){
-	audio.src = playlist[seq]
-	audio.play();
+	player.src = playlist[seq]
+	player.play();
 	seq ++;}
 }
+
+function init(){
+	console.log('audio loaded')
+}
+
+document.getElementById("screen").addEventListener("click", play)
