@@ -1,5 +1,4 @@
 var seq = 0
-var idols = new Array()
 var playlist = new Array(
 	'resources/audio/1 Are.mp3',
 	'resources/audio/2 You.mp3',
@@ -42,27 +41,16 @@ var imgSet = new Array(
 	'resources/Hibiki.png'
 	)
 
-
-function loadStuffs(){	
-
-	for (var i=0; i<imgSet.length; i++) {
-		idols[i] = new Image()
-		idols[i].src = imgSet[i]
-		console.log('image '+i+' loaded')
-	}
-
-/*	for (var i=0; i<playlist.length; i++) {
-		audio.src = playlist[i]
-		audio.load()
-		console.log('audio '+i+' loaded')
-	}*/
-}
-
-
 function preloadAudio(track){
 	var audio = new Audio()
 	audio.addEventListener('canplaythrough', loadedAudio, false)
 	audio.src = track
+}
+
+function preloadImage(image){
+	var images = new Image()
+	images.addEventListener('load', loadedImage, false)
+	images.src = image
 }
 
 var loaded = 0
@@ -73,8 +61,20 @@ function loadedAudio(){
 	}
 }
 
+var loaded2 = 0
+function loadedImage(){
+	loaded2++
+	if(loaded2==imgSet.length){
+		init2();
+	}
+}
+
 for (var i in playlist){
 	preloadAudio(playlist[i])
+}
+
+for (var i in imgSet){
+	preloadImage(imgSet[i])
 }
 
 var player = document.getElementById('player')
@@ -82,24 +82,24 @@ var player = document.getElementById('player')
 function play(){
 	switch(seq){
 	case 4:
-		document.getElementById("leftImg").src = idols[2].src
-		document.getElementById("rightImg").src = idols[3].src
+		document.getElementById("leftImg").src = imgSet[2]
+		document.getElementById("rightImg").src = imgSet[3]
 		break
 	case 8:
-		document.getElementById("leftImg").src = idols[4].src
-		document.getElementById("rightImg").src = idols[5].src
+		document.getElementById("leftImg").src = imgSet[4]
+		document.getElementById("rightImg").src = imgSet[5]
 		break
 	case 13:
-		document.getElementById("leftImg").src = idols[6].src
-		document.getElementById("rightImg").src = idols[7].src
+		document.getElementById("leftImg").src = imgSet[6]
+		document.getElementById("rightImg").src = imgSet[7]
 		break
 	case 19:
-		document.getElementById("leftImg").src = idols[8].src
-		document.getElementById("rightImg").src = idols[9].src
+		document.getElementById("leftImg").src = imgSet[8]
+		document.getElementById("rightImg").src = imgSet[9]
 		break
 	case 21:
-		document.getElementById("leftImg").src = idols[10].src
-		document.getElementById("rightImg").src = idols[11].src
+		document.getElementById("leftImg").src = imgSet[10]
+		document.getElementById("rightImg").src = imgSet[11]
 	}
 
 	if(seq<=23){
@@ -110,6 +110,10 @@ function play(){
 
 function init(){
 	console.log('audio loaded i think')
+}
+
+function init2(){
+	console.log('images loaded i think')
 }
 
 document.getElementById("screen").addEventListener("click", play)
