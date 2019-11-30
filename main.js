@@ -127,4 +127,3 @@ function init2(){
 }
 
 document.getElementById("screen").addEventListener("mousedown", play)
-document.getElementById("screen").addEventListener("touchstart", play)
