@@ -27,10 +27,12 @@ var playlist = new Array(
 	'resources/audio/23 ta.mp3',
 	'resources/audio/24 i.mp3',
 	)
-	
-for (i; i<playlist.length; i++) {
-	audio.src = playlist[i]
-	audio.load()
+
+function loadAudio(){	
+	for (i; i<playlist.length; i++) {
+		audio.src = playlist[i]
+		audio.load()
+	}
 }
 
 audio.oncanplaythrough = function(){
@@ -41,6 +43,30 @@ audio.oncanplaythrough = function(){
 document.getElementById("screen").addEventListener("click", playSeq)
 
 function playSeq(){
+	
+	switch(seq){
+	case 4:
+		document.getElementById("leftImg").src = "resources/Makoto.png"
+		document.getElementById("rightImg").src = "resources/Yukiho.png"
+		break
+	case 8:
+		document.getElementById("leftImg").src = "resources/Iori.png"
+		document.getElementById("rightImg").src = "resources/Yayoi.png"
+		break
+	case 13:
+		document.getElementById("leftImg").src = "resources/Ritsuko.png"
+		document.getElementById("rightImg").src = "resources/AmiMami.png"
+		break
+	case 19:
+		document.getElementById("leftImg").src = "resources/Miki.png"
+		document.getElementById("rightImg").src = "resources/Azusa.png"
+		break
+	case 21:
+		document.getElementById("leftImg").src = "resources/Takane.png"
+		document.getElementById("rightImg").src = "resources/Hibiki.png"
+		break
+	}
+
 	if(seq<=23){
 	audio.src = playlist[seq]
 	audio.play();

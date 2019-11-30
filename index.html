@@ -20,23 +20,26 @@
 	  }
 
 	  .right{
-	  	float:right;
+	  	position: fixed;
+	  	right: 0px;
+	  	bottom: -20px;
 	  	width: 50%;
-	  	height:95%;
+	  	height:100%;
 	  	object-fit: cover;
 	  }
 
 	  .left{
-	  	float:left;
+	  	position: fixed;
+	  	left: 0px;
+	  	bottom: -20px;
 	  	width: 50%;
-	  	height:95%;
+	  	height:100%;
 	  	object-fit: cover;
 	  }
 
 	</style>
 </head>
-<body>
-	<!-- <div id="arrows" class="up"><img class="arrow" src="resources/arrow-right.png" alt="Right"></div> -->
+<body onload="loadAudio()">
 	<div id="screen" class="overlay">
 		<h1 class="center">
 			1. Turn up your speaker volume<br><br>
@@ -45,8 +48,8 @@
 		</h1>
 		<h1 id="loadMessage" class="center"></h1>
 	</div>
-	<img src="resources/Haruka.png" class="left">
-	<img src="resources/Chihaya.png" class="right">
+	<img src="resources/Haruka.png" class="left" id="leftImg">
+	<img src="resources/Chihaya.png" class="right" id="rightImg">
 	<script src="main.js?version = 0.0.0.0000.1" charset="utf-8" type="text/javascript"></script>
 </body>
 </html>
