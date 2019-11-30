@@ -1,41 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8" name='viewport' 
+     content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
 	<title>TEST</title>
 	<style type="text/css">
-		.right{
-			-ms-transform: rotate(0deg); /* IE 9 */
-  			-webkit-transform: rotate(0deg); /* Safari 3-8 */
-  			transform: rotate(0deg);
-		}
-		.down{
-			-ms-transform: rotate(90deg); /* IE 9 */
-  			-webkit-transform: rotate(90deg); /* Safari 3-8 */
-  			transform: rotate(90deg);
-		}
-		.left{
-			-ms-transform: rotate(180deg); /* IE 9 */
-  			-webkit-transform: rotate(180deg); /* Safari 3-8 */
-  			transform: rotate(180deg);
-		}
-		.up{
-			-ms-transform: rotate(270deg); /* IE 9 */
-  			-webkit-transform: rotate(270deg); /* Safari 3-8 */
-  			transform: rotate(270deg);
-		}
-		.arrow{
-			display: block;
-			margin: 0 auto;
-			width: 15%;
-			height: 15%;	
-		}
+	  .overlay {
+	    position: fixed;
+	    width: 100%;
+	    height: 100%;
+	    left: 0;
+	    top: 0;
+	    /*background: rgba(51,51,51,0.7);*/
+	    z-index: 10;
+	  }
+
+	  .center{
+	  	text-align: center;
+	  }
+
+	  .right{
+	  	float:right;
+	  	width: 50%;
+	  	height:95%;
+	  	object-fit: cover;
+	  }
+
+	  .left{
+	  	float:left;
+	  	width: 50%;
+	  	height:95%;
+	  	object-fit: cover;
+	  }
 
 	</style>
 </head>
-<body onload="randomArrow()">
-	<button onClick="randomArrow()">Reset</button>
-	<div id="arrows" class="up"><img class="arrow" src="resources/arrow-right.png" alt="Right"></div>
-
+<body>
+	<!-- <div id="arrows" class="up"><img class="arrow" src="resources/arrow-right.png" alt="Right"></div> -->
+	<div id="screen" class="overlay">
+		<h1 class="center">
+			1. Turn up your speaker volume<br><br>
+			2. Tap on screen<br><br>
+			3. Enjoy
+		</h1>
+	</div>
+	<img src="resources/Haruka.png" class="left">
+	<img src="resources/Chihaya.png" class="right">
 	<script src="main.js?version = 0.0.0.0000.1" charset="utf-8" type="text/javascript"></script>
 </body>
 </html>
