@@ -24,6 +24,7 @@ var playlist = new Array(
 	'resources/audio/22 Zet.mp3',
 	'resources/audio/23 ta.mp3',
 	'resources/audio/24 i.mp3',
+	'resources/audio/25 rest.mp3'
 	)
 
 var imgSet = new Array(
@@ -38,7 +39,8 @@ var imgSet = new Array(
 	'resources/Azusa.png',
 	'resources/Miki.png',
 	'resources/Takane.png',
-	'resources/Hibiki.png'
+	'resources/Hibiki.png',
+	'resources/All.png'
 	)
 
 function preloadAudio(track){
@@ -100,9 +102,17 @@ function play(){
 	case 21:
 		document.getElementById("leftImg").src = imgSet[10]
 		document.getElementById("rightImg").src = imgSet[11]
+		break
+	case 24:
+		document.getElementById("leftImg").className = "middle"
+		document.getElementById("rightImg").className = ""
+		document.getElementById("leftImg").src = imgSet[12]
+		document.getElementById("rightImg").style.display = "none"
+		break
 	}
 
-	if(seq<=23){
+
+	if(seq<playlist.length){
 	player.src = playlist[seq]
 	player.play();
 	seq ++;}
