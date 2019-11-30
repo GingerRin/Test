@@ -1,6 +1,6 @@
 var seq = 0;
 var audio = new Audio()
-var i = 0;
+var idols = new Array()
 var playlist = new Array(
 	'resources/audio/1 Are.mp3',
 	'resources/audio/2 You.mp3',
@@ -28,17 +28,37 @@ var playlist = new Array(
 	'resources/audio/24 i.mp3',
 	)
 
-function loadAudio(){	
-	for (i; i<playlist.length; i++) {
+var imgSet = new Array(
+	'resources/Haruka.png',
+	'resources/Chihaya.png',
+	'resources/Makoto.png',
+	'resources/Yukiho.png',
+	'resources/Iori.png',
+	'resources/Yayoi.png',
+	'resources/Ritsuko.png',
+	'resources/AmiMami.png',
+	'resources/Azusa.png',
+	'resources/Miki.png',
+	'resources/Takane.png',
+	'resources/Hibiki.png'
+	)
+
+
+function loadStuffs(){	
+
+	for (var i=0; i<imgSet.length; i++) {
+		idols[i] = new Image()
+		idols[i].src = imgSet[i]
+		console.log('image '+i+' loaded')
+	}
+
+	for (var i=0; i<playlist.length; i++) {
 		audio.src = playlist[i]
 		audio.load()
+		console.log('audio '+i+' loaded')
 	}
 }
 
-audio.oncanplaythrough = function(){
-	console.log('audio loaded')
-	document.getElementById("loadMessage").innerHTML = "Audio loaded"
-};
 
 document.getElementById("screen").addEventListener("click", playSeq)
 
@@ -46,25 +66,24 @@ function playSeq(){
 	
 	switch(seq){
 	case 4:
-		document.getElementById("leftImg").src = "resources/Makoto.png"
-		document.getElementById("rightImg").src = "resources/Yukiho.png"
+		document.getElementById("leftImg").src = idols[2].src
+		document.getElementById("rightImg").src = idols[3].src
 		break
 	case 8:
-		document.getElementById("leftImg").src = "resources/Iori.png"
-		document.getElementById("rightImg").src = "resources/Yayoi.png"
+		document.getElementById("leftImg").src = idols[4].src
+		document.getElementById("rightImg").src = idols[5].src
 		break
 	case 13:
-		document.getElementById("leftImg").src = "resources/Ritsuko.png"
-		document.getElementById("rightImg").src = "resources/AmiMami.png"
+		document.getElementById("leftImg").src = idols[6].src
+		document.getElementById("rightImg").src = idols[7].src
 		break
 	case 19:
-		document.getElementById("leftImg").src = "resources/Miki.png"
-		document.getElementById("rightImg").src = "resources/Azusa.png"
+		document.getElementById("leftImg").src = idols[8].src
+		document.getElementById("rightImg").src = idols[9].src
 		break
 	case 21:
-		document.getElementById("leftImg").src = "resources/Takane.png"
-		document.getElementById("rightImg").src = "resources/Hibiki.png"
-		break
+		document.getElementById("leftImg").src = idols[10].src
+		document.getElementById("rightImg").src = idols[11].src
 	}
 
 	if(seq<=23){
